@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Edit_Image_icon-icons.com_54184.ico" />
+    <None Remove="Resources\image_images_pictures_icon_181543.ico" />
+    <None Remove="Resources\TextAnalysis.ico" />
+    <None Remove="Resources\UploadImage.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0-ci133" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.0" />
+    <PackageReference Include="Microsoft.ML.Vision" Version="1.7.0" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Edit_Image_icon-icons.com_54184.ico" />
+    <Resource Include="Resources\image_images_pictures_icon_181543.ico" />
+    <Resource Include="Resources\TextAnalysis.ico" />
+    <Resource Include="Resources\UploadImage.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup Label="ImageClassifier">
+    <None Include="ImageClassifier.consumption.cs">
+      <DependentUpon>ImageClassifier.mbconfig</DependentUpon>
+    </None>
+    <None Include="ImageClassifier.training.cs">
+      <DependentUpon>ImageClassifier.mbconfig</DependentUpon>
+    </None>
+    <None Include="ImageClassifier.zip">
+      <DependentUpon>ImageClassifier.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="AIImageAnalysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AIImageAnalysis"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AI Image Analysis" Height="600" Width="800" MinWidth="800" MinHeight="600">
+    <Grid>
+        <StackPanel Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1">
+            <Button x:Name="ButtonUploadImage" Click="btnUploadImage" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="12" ToolTip="Загрузить изображение">
+                <Image Source="/Resources/UploadImage.ico" Width="30" Margin="2,2,0,0"/>
+            </Button>
+            <Button x:Name="ButtonGetImageAnalysis" Click="btnGetImageAnalysis" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="12" ToolTip="Получить текстовое описание изображения" Cursor="Hand">
+                <Image Source="/Resources/TextAnalysis.ico" Width="30"/>
+            </Button>
+        </StackPanel>
+
+        <TextBox x:Name="TextBoxClasses" Text="" Margin="10,499,10,10" TextAlignment="Center" Style="{StaticResource MaterialDesignOutlinedTextBox}" Panel.ZIndex="1" IsReadOnly="True" FontSize="14" VerticalAlignment="Bottom" CaretBrush="#FFB39DDB" Background="#FFB39DDB" Cursor="Arrow" Visibility="Visible"/>
+
+        <Image x:Name="ImageView"/>
+        
+    </Grid>
+</Window>
